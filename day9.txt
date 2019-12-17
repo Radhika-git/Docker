@@ -1,0 +1,35 @@
+URN : 56492959
+(SAVE FOR FUTURE REFERENCE)
+kubeadm token create oa44h6.j3ux6iz52tr9xz41 --print-join-command --ttl=0
+
+
+apply:create and update 
+Rollingupdate:no downtime
+
+ 2061  kubectl apply -f deployment-ex1.yml --record
+ 2062  
+ 2063  kubectl rollout status deploy mydeployment
+ 2064  kubectl rollout history
+ 2065  kubectl rollout history deploy mydeployment
+ 2066  kubectl apply -f deployment-rollupdate.yml --record
+ 2067  kubectl rollout status deploy mydeployment
+ 2068  more deployment-rollupdate.yml
+ 2069  kubectl rollout history
+ 2070  kubectl rollout history deploy mydeployment
+ 2071  ls -ltrh
+ 2072  
+ 2073  kubectl rollout undo deploy mydeployment --to-revision=1
+ 2074  kubectl rollout history deploy mydeployment
+ 2075  kubectl rollout status deploy mydeployment
+
+
+Deamonset :100 servers 
+
+M H DOM m Dow
+*  * *  * *
+
+Last 3 records
+
+
+Services and volumes
+

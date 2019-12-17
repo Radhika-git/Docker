@@ -1,0 +1,488 @@
+   41  docker service create --name web --replicas 6 -p 8080:80 nginx
+   42  docker service ls
+   43  docker service ps web
+   44  docker node ps ip-172-31-1-77
+   45  docker service ls
+   46  docker service rm web
+   47  docker service ls
+   48  docker service create --name web --replicas 6 -p 8080:80 nginx
+   49  clear
+   50  docker service ls
+   51  docker service scale web=9
+   52  docker service scale web=4
+   53* docker service p
+   54  docker service scale web=6
+   55  clear
+   56  docker service ls
+   57  docker service ps web
+   58  docker service ps web | grep Running
+   59  docker node ls
+
+
+Microsoft Windows [Version 10.0.17763.678]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\v-ranar>ssh radhika2@13.84.211.38
+radhika2@13.84.211.38's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 05:50:42 UTC 2019
+
+  System load:  0.06              Processes:              126
+  Usage of /:   7.4% of 28.90GB   Users logged in:        0
+  Memory usage: 9%                IP address for eth0:    10.0.29.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Kata Containers are now fully integrated in Charmed Kubernetes 1.16!
+   Yes, charms take the Krazy out of K8s Kata Kluster Konstruction.
+
+     https://ubuntu.com/kubernetes/docs/release-notes
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+14 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Thu Nov  7 10:34:28 2019 from 103.70.131.59
+radhika2@radhika2:~$ sudo su -
+root@radhika2:~# docker swarm join --token SWMTKN-1-2zsoi47htmasmpu2gsc3l83tvt8jjrogflrn8dppamzgyq766u-2ugpowsqx229absybrwaub7s8 10.0.6.4:2377
+Error response from daemon: Timeout was reached before node joined. The attempt to join the swarm will continue in the background. Use the "docker info" command to see the current swarm status of your node.
+root@radhika2:~# docker swarm join --token SWMTKN-1-2zsoi47htmasmpu2gsc3l83tvt8jjrogflrn8dppamzgyq766u-2ugpowsqx229absybrwaub7s8 10.0.6.4:2377
+Error response from daemon: This node is already part of a swarm. Use "docker swarm leave" to leave this swarm and join another one.
+root@radhika2:~# ping 10.0.6.4
+PING 10.0.6.4 (10.0.6.4) 56(84) bytes of data.
+
+
+^C
+--- 10.0.6.4 ping statistics ---
+137 packets transmitted, 0 received, 100% packet loss, time 139253ms
+
+root@radhika2:~# docker swarm leave
+Node left the swarm.
+root@radhika2:~# docker swarm join --token SWMTKN-1-2zsoi47htmasmpu2gsc3l83tvt8jjrogflrn8dppamzgyq766u-2ugpowsqx229absybrwaub7s8 10.0.6.4:2377
+Error response from daemon: Timeout was reached before node joined. The attempt to join the swarm will continue in the background. Use the "docker info" command to see the current swarm status of your node.
+root@radhika2:~# logout
+radhika2@radhika2:~$ logout
+Connection to 13.84.211.38 closed.
+
+C:\Users\v-ranar>ssh radhika2@13.84.211.38
+radhika2@13.84.211.38's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:06:48 UTC 2019
+
+  System load:  0.09              Processes:              126
+  Usage of /:   7.4% of 28.90GB   Users logged in:        0
+  Memory usage: 9%                IP address for eth0:    10.0.29.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Kata Containers are now fully integrated in Charmed Kubernetes 1.16!
+   Yes, charms take the Krazy out of K8s Kata Kluster Konstruction.
+
+     https://ubuntu.com/kubernetes/docs/release-notes
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+14 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri Nov  8 05:50:43 2019 from 103.125.160.18
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:06:48 UTC 2019
+
+  System load:  0.09              Processes:              126
+  Usage of /:   7.4% of 28.90GB   Users logged in:        0
+  Memory usage: 9%                IP address for eth0:    10.0.29.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Kata Containers are now fully integrated in Charmed Kubernetes 1.16!
+   Yes, charms take the Krazy out of K8s Kata Kluster Konstruction.
+
+     https://ubuntu.com/kubernetes/docs/release-notes
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+14 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri Nov  8 05:50:43 2019 from 103.125.160.18
+radhika2@radhika2:~$ sudo su -
+root@radhika2:~# docker swarm join --token SWMTKN-1-2zsoi47htmasmpu2gsc3l83tvt8jjrogflrn8dppamzgyq766u-2ugpowsqx229absybrwaub7s8 10.0.6.4:2377
+Error response from daemon: This node is already part of a swarm. Use "docker swarm leave" to leave this swarm and join another one.
+root@radhika2:~# docker swarm leave
+Node left the swarm.
+root@radhika2:~# docker swarm join --token SWMTKN-1-2zsoi47htmasmpu2gsc3l83tvt8jjrogflrn8dppamzgyq766u-2ugpowsqx229absybrwaub7s8 10.0.6.4:2377
+Error response from daemon: Timeout was reached before node joined. The attempt to join the swarm will continue in the background. Use the "docker info" command to see the current swarm status of your node.
+root@radhika2:~# Connection to 13.84.211.38 closed by remote host.
+Connection to 13.84.211.38 closed.
+
+C:\Users\v-ranar>ssh radhika2@13.84.211.38
+ssh: connect to host 13.84.211.38 port 22: Connection timed out
+
+C:\Users\v-ranar>ssh akhila@40.115.55.9
+The authenticity of host '40.115.55.9 (40.115.55.9)' can't be established.
+ECDSA key fingerprint is SHA256:XRzB20QBev1pkFBUuHfiriACtiyQAHEq0dj4M6Yl/J0.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '40.115.55.9' (ECDSA) to the list of known hosts.
+akhila@40.115.55.9's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:29:00 UTC 2019
+
+  System load:  0.12              Processes:           119
+  Usage of /:   4.6% of 28.90GB   Users logged in:     1
+  Memory usage: 5%                IP address for eth0: 10.0.68.5
+  Swap usage:   0%
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+30 packages can be updated.
+14 updates are security updates.
+
+
+Last login: Fri Nov  8 06:23:33 2019 from 103.125.160.18
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:29:00 UTC 2019
+
+  System load:  0.12              Processes:           119
+  Usage of /:   4.6% of 28.90GB   Users logged in:     1
+  Memory usage: 5%                IP address for eth0: 10.0.68.5
+  Swap usage:   0%
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+30 packages can be updated.
+14 updates are security updates.
+
+
+Last login: Fri Nov  8 06:23:33 2019 from 103.125.160.18
+akhila@docker4:~$ sudo su -
+root@docker4:~# docker info
+
+Command 'docker' not found, but can be installed with:
+
+snap install docker     # version 18.06.1-ce, or
+apt  install docker.io
+
+See 'snap info docker' for additional versions.
+
+root@docker4:~# docker swarm join --token SWMTKN-1-6cghjo9w3serxogc8x89ggdoa49jwpahb80oqljnivjmpqbi0s-ef1e17n6b71vcp9bwisbtfhgc 10.0.68.4:2377
+
+Command 'docker' not found, but can be installed with:
+
+snap install docker     # version 18.06.1-ce, or
+apt  install docker.io
+
+See 'snap info docker' for additional versions.
+
+root@docker4:~# docker -v
+
+Command 'docker' not found, but can be installed with:
+
+snap install docker     # version 18.06.1-ce, or
+apt  install docker.io
+
+See 'snap info docker' for additional versions.
+
+root@docker4:~# sudo apt-get remove docker docker-engine docker.io containerd runc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+root@docker4:~# sudo apt-get update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+root@docker4:~# sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+ca-certificates is already the newest version (20180409).
+curl is already the newest version (7.58.0-2ubuntu3.8).
+software-properties-common is already the newest version (0.96.24.32.11).
+apt-transport-https is already the newest version (1.6.12).
+gnupg-agent is already the newest version (2.2.4-1ubuntu1.2).
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+root@docker4:~# sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+OK
+root@docker4:~# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+Hit:1 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+root@docker4:~# sudo apt-get update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+root@docker4:~# sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  aufs-tools cgroupfs-mount libltdl7 pigz
+The following NEW packages will be installed:
+  aufs-tools cgroupfs-mount containerd.io docker-ce docker-ce-cli libltdl7 pigz
+0 upgraded, 7 newly installed, 0 to remove and 30 not upgraded.
+Need to get 85.6 MB of archives.
+After this operation, 384 MB of additional disk space will be used.
+Get:1 http://azure.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57.4 kB]
+Get:2 http://azure.archive.ubuntu.com/ubuntu bionic/universe amd64 aufs-tools amd64 1:4.9+20170918-1ubuntu1 [104 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6320 B]
+Get:4 http://azure.archive.ubuntu.com/ubuntu bionic/main amd64 libltdl7 amd64 2.4.6-2 [38.8 kB]
+Get:5 https://download.docker.com/linux/ubuntu bionic/stable amd64 containerd.io amd64 1.2.10-3 [20.0 MB]
+Get:6 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce-cli amd64 5:19.03.4~3-0~ubuntu-bionic [42.5 MB]
+Get:7 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce amd64 5:19.03.4~3-0~ubuntu-bionic [22.9 MB]
+Fetched 85.6 MB in 2s (47.1 MB/s)
+Selecting previously unselected package pigz.
+(Reading database ... 74427 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package aufs-tools.
+Preparing to unpack .../1-aufs-tools_1%3a4.9+20170918-1ubuntu1_amd64.deb ...
+Unpacking aufs-tools (1:4.9+20170918-1ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../2-cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Selecting previously unselected package containerd.io.
+Preparing to unpack .../3-containerd.io_1.2.10-3_amd64.deb ...
+Unpacking containerd.io (1.2.10-3) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../4-docker-ce-cli_5%3a19.03.4~3-0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-ce-cli (5:19.03.4~3-0~ubuntu-bionic) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../5-docker-ce_5%3a19.03.4~3-0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-ce (5:19.03.4~3-0~ubuntu-bionic) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../6-libltdl7_2.4.6-2_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-2) ...
+Setting up aufs-tools (1:4.9+20170918-1ubuntu1) ...
+Setting up containerd.io (1.2.10-3) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service ? /lib/systemd/system/containerd.service.
+Setting up cgroupfs-mount (1.4) ...
+Setting up libltdl7:amd64 (2.4.6-2) ...
+Setting up docker-ce-cli (5:19.03.4~3-0~ubuntu-bionic) ...
+Setting up pigz (2.4-1) ...
+Setting up docker-ce (5:19.03.4~3-0~ubuntu-bionic) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service ? /lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket ? /lib/systemd/system/docker.socket.
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for systemd (237-3ubuntu10.31) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+root@docker4:~# sudo usermod -aG docker docker4
+usermod: user 'docker4' does not exist
+root@docker4:~# sudo usermod -aG docker akhila
+root@docker4:~# logout
+akhila@docker4:~$ logout
+Connection to 40.115.55.9 closed.
+
+C:\Users\v-ranar>ssh akhila@40.115.55.9
+akhila@40.115.55.9's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:39:02 UTC 2019
+
+  System load:  0.04              Processes:              130
+  Usage of /:   6.1% of 28.90GB   Users logged in:        0
+  Memory usage: 6%                IP address for eth0:    10.0.68.5
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+30 packages can be updated.
+14 updates are security updates.
+
+
+Last login: Fri Nov  8 06:32:31 2019 from 14.98.211.214
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Nov  8 06:39:02 UTC 2019
+
+  System load:  0.04              Processes:              130
+  Usage of /:   6.1% of 28.90GB   Users logged in:        0
+  Memory usage: 6%                IP address for eth0:    10.0.68.5
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+30 packages can be updated.
+14 updates are security updates.
+
+
+Last login: Fri Nov  8 06:32:31 2019 from 14.98.211.214
+akhila@docker4:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+akhila@docker4:~$ sudo su -
+root@docker4:~# docker swarm join --token SWMTKN-1-6cghjo9w3serxogc8x89ggdoa49jwpahb80oqljnivjmpqbi0s-ef1e17n6b71vcp9bwisbtfhgc 10.0.68.4:2377
+This node joined a swarm as a worker.
+root@docker4:~# docker swarm leave
+Node left the swarm.
+root@docker4:~# docker swarm join --token SWMTKN-1-6cghjo9w3serxogc8x89ggdoa49jwpahb80oqljnivjmpqbi0s-ef1e17n6b71vcp9bwisbtfhgc 10.0.68.4:2377
+This node joined a swarm as a worker.
+root@docker4:~# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS               NAMES
+550960a0122a        nginx:latest        "nginx -g 'daemon of…"   About a minute ago   Up About a minute   80/tcp              web.7.8745vgylsna7jv2u4zv988b1b
+0b5ddc3fcc1d        nginx:latest        "nginx -g 'daemon of…"   About a minute ago   Up About a minute   80/tcp              web.1.y4mc2pmu7kq5unpv5xnerfuya
+5597c51e4026        nginx:latest        "nginx -g 'daemon of…"   About a minute ago   Up About a minute   80/tcp              web.4.kxkwmsrqhc4w9a694z2r9fnja
+root@docker4:~# docker rm -f 550960a0122a 0b5ddc3fcc1d 5597c51e4026
+550960a0122a
+0b5ddc3fcc1d
+5597c51e4026
+root@docker4:~# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+root@docker4:~#
+
+
+
+    1  clear
+    2  /tmp/labs/docker/installDocker.sh
+    3  clear
+    4  docker -v
+    5  cd
+    6  clear
+    7  docker info
+    8  clear
+    9  docker swarm init
+   10  clear
+   11  docker node ls
+   12  docker node --help
+   13  docker node inspect ip-172-31-1-77
+   14  docker node ls
+   15  clear
+   16  docker node ls
+   17  docker node rm ip-172-31-1-77
+   18  docker node ls
+   19  docker node rm ip-172-31-4-48
+   20  docker node
+   21  docker node ls
+   22  clear
+   23  docker node ls
+   24  docker node promote ip-172-31-4-48
+   25  docker node ls
+   26  docker node demote ip-172-31-4-48
+   27  docker node ls
+   28  docker node rm ip-172-31-1-77 --force
+   29  docker node ls
+   30  docker node
+   31  docker node ps ip-172-31-1-77
+   32  docker node ps ip-172-31-1-77 ip-172-31-4-48
+   33  clear
+   34  docker swarm
+   35  docker swarm join-token
+   36  docker swarm join-token worker
+   37  docker swarm join-token manager
+   38  docker swarm
+   39  docker swarm update
+   40  clear
+   41  docker service create --name web --replicas 6 -p 8080:80 nginx
+   42  docker service ls
+   43  docker service ps web
+   44  docker node ps ip-172-31-1-77
+   45  docker service ls
+   46  docker service rm web
+   47  docker service ls
+   48  docker service create --name web --replicas 6 -p 8080:80 nginx
+   49  clear
+   50  docker service ls
+   51  docker service scale web=9
+   52  docker service scale web=4
+   53* docker service p
+   54  docker service scale web=6
+   55  clear
+   56  docker service ls
+   57  docker service ps web
+   58  docker service ps web | grep Running
+   59  docker node ls
+   60  clear
+   61  history
+   62  clear
+   63  docker service ls
+   64  docker service rm web
+   65  docker service create --name myapp --replicas 6 -p 8080:3000 lerndevops/samplypyapp:v2
+   66  docker service create --name myapp --replicas 6 -p 8080:3000 lerndevops/samplepyapp:v2
+   67  docker service rm myapp
+   68  clear
+   69  docker service create --name myapp --replicas 6 -p 8080:3000 lerndevops/samplepyapp:v2
+   70  docker service ps myapp
+   71  docker service ls
+   72  clear
+   73  docker service update --replicas 7 web
+   74  docker service update --replicas 7 myapp
+   75  docker service ls
+   76  docker service update --image lerndevops/samplepyapp:v1 myapp
+   77  docker service ls
+   78  docker service rollback myapp
+   79  docker service ls

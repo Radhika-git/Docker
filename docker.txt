@@ -1,0 +1,26 @@
+public repo:hub.docker.com
+Private repository:DTR-paid
+registry-container(opensource)(private)
+JFROG-artifactory(licenced)
+
+1)build all the 6 images 
+2)ENV
+ADD
+WORKDIR
+ENTRYPOINT
+3)upload into registry container
+4)transfer image from machine1 to machine2
+
+
+docker build -f dockerfile_mypyapp -t myapp1:v1 .
+docker run -d -P todayapp2:v1
+docker ps
+ docker tag myapp1:v1 radhikanarsingoju/radapp2:v3
+docker push radhikanarsingoju/radapp2:v3
+
+
+Registry
+docker run -d -p 5000:5000 --restart always --name registry registry:2
+docker tag localimage:tag localhost:5000/todayapp2:v2
+docker push localhost:5000/todayapp2:v2
+docker pull localhost:5000/todayapp2:v2

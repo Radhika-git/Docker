@@ -1,0 +1,1 @@
+DOCKER_EE_URL=https://storebits.docker.com/ee/trial/sub-61574baf-3588-4c02-97db-3be123485aa3

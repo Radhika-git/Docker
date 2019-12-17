@@ -1,0 +1,24 @@
+1) You will need a Docker Hub account. You can create one at https://hub.docker.com.
+
+2) Start a Docker EE free trial: https://hub.docker.com/editions/enterprise/docker-ee-trial.
+
+3) Get your unique Docker EE URL from your trial:
+		Go to https://hub.docker.com/my-content
+		Click Setup
+		Copy your url ( https://storebits.docker.com/ee/trial/sub-c12cb585-d245-4d63-a1bf-04f69a8967ce )
+
+4) set up some temporary environment variables. Enter your unique Docker EE URL for the DOCKER_EE_URL variable
+		DOCKER_EE_URL=<your docker ee url>
+		DOCKER_EE_VERSION=18.09
+
+5) Install required packages.
+		sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+
+6) Add the GPG and apt repository using your Docker EE URL.
+
+		curl -fsSL "${DOCKER_EE_URL}/ubuntu/gpg" | sudo apt-key add -
+		sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] $DOCKER_EE_URL/ubuntu $(lsb_release -cs) stable-$DOCKER_EE_VERSION"
+
+7) Install Docker EE
+		sudo apt-get update
+		sudo apt-get install -y docker-ee=5:18.09.4~3-0~ubuntu-bionic

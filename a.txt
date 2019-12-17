@@ -1,0 +1,35 @@
+docker container run --rm -it --name ucp \
+		  -v /var/run/docker.sock:/var/run/docker.sock \
+		  docker/ucp:3.1.10 install \
+		  --host-address $PRIVATE_IP \
+                  --cloud-provider azure \
+		  --interactive
+
+
+docker container run --rm -it --name ucp \
+     -v /var/run/docker.sock:/var/run/docker.sock \
+     docker/ucp:3.1.10 install \
+     --host-address $PRIVATE_IP \
+     --cloud-provider azure \
+     --interactive
+
+	
+10.0.2.6
+sudo kubeadm init --apiserver-advertise-address=10.0.2.6 --pod-network-cidr=10.244.0.0/16
+
+
+
+kubeadm join 10.0.2.6:6443 --token hseuk4.fv9b86can9vwsw5q \
+    --discovery-token-ca-cert-hash sha256:4efb0a6fd5e0aaea104c701c4d56f198fefc59173656b913681a4c364bfa4128
+
+kubeadm token create "4wg8iu.bht2syykw2ma8gji" --print-join-command --ttl=0
+
+
+kubectl label node radhika1 env=prod
+kubectl label node radhika1 env=prod
+kubectl get node --selector='env=prod'
+own key
+kubeadm join 10.0.2.6:6443 --token 4wg8iu.bht2syykw2ma8gji     --discovery-token-ca-cert-hash sha256:4efb0a6fd5e0aaea104c701c4d56f198fefc59173656b913681a4c364bfa4128
+
+
+

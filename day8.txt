@@ -1,0 +1,493 @@
+kubectl taint node radhika1 env-
+
+Controlers:to create multiple pods
+
+root@radhika2:~# history
+    1  sudo apt-get remove docker docker-engine docker.io containerd runc
+    2  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    3  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    4  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    5  sudo apt-get update
+    6  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    7  sudo usermod -aG docker radhika2
+    8  logout
+    9  docker ps
+   10  DOCKER_EE_URL=https://storebits.docker.com/ee/trial/sub-61574baf-3588-4c02-97db-3be123485aa3
+   11  DOCKER_EE_VERSION=18.09
+   12  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+   13  curl -fsSL "${DOCKER_EE_URL}/ubuntu/gpg" | sudo apt-key add -
+   14  sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] $DOCKER_EE_URL/ubuntu $(lsb_release -cs) stable-$DOCKER_EE_VERSION"
+   15  sudo apt-get update
+   16  sudo apt-get install -y docker-ee=5:18.09.4~3-0~ubuntu-bionic
+   17  docker version
+   18  docker image pull docker/ucp:3.1.10
+   19  hostname -i
+   20  PRIVATE_IP=
+   21  10.0.2.6
+   22  PRIVATE_IP=10.0.2.6
+   23  docker container run --rm -it --name ucp      -v /var/run/docker.sock:/var/run/docker.sock      docker/ucp:3.1.10 install      --host-address $PRIVATE_IP      --cloud-provider azure      --interactive
+   24  docker logs ucp-reconcile
+   25  free -m
+   26  swapoff -a
+   27  vi /etc/fstab
+   28  sudo apt-get update
+   29  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+   30  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   31  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   32  sudo apt-get update ; clear
+   33  apt-cache madison docker-ce | awk '{print $3}'
+   34  5:19.03.4~3-0~ubuntu-bionic
+   35  sudo apt-get install -y docker-ce=5:19.03.4~3-0~ubuntu-bionic
+   36  sudo service docker start ; clear
+   37  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   38  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   39  sudo apt-get update ; clear
+   40  sudo apt-get install -y kubelet kubeadm kubectl
+   41  kubelet
+   42  kubectl version
+   43  hostname -i
+   44  sudo kubeadm init --apiserver-advertise-address=10.0.2.6 --pod-network-cidr=10.244.0.0/16
+   45  sudo mkdir -p $HOME/.kube
+   46  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   47  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   48  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+   49  kubctl get nodes
+   50  kubectl get nodes
+   51  docker images ls
+   52  docker images
+   53  kubeadm tokenlist
+   54  kubeadm token list
+   55  kubeadm token delete hseuk4.fv9b86can9vwsw5q
+   56  kubeadm token list
+   57  token=`kubeadm token generate`
+   58  kubeadm token create "$token" --print-join-command --ttl=0
+   59  kubeadm token generate
+   60  kubeadm token create "4wg8iu.bht2syykw2ma8gji" --print-join-command --ttl=0
+   61  kubectl get nodes
+   62  kubectl version
+   63  kubectl get nodes -o wide
+   64  kubectl describe node kube-node
+   65  kubectl describe node radhika1
+   66  kubectl get node --selector='!node-role.kubernetes.io/master'
+   67  kubectl get nodes --show-labels
+   68  kubectl label node radhika1 env=prod
+   69  kubectl get nodes --show-labels
+   70  kubectl label node radhika1 env-
+   71  kubectl get nodes --show-labels
+   72  kubectl label node radhika1 env=prod
+   73  kubectl get node --selector='env=prod'
+   74  journalctl -u kubelet
+   75  journalctl -u kube-proxy
+   76  kubectl get all --all-namespaces
+   77  kubectl get componentstatus
+   78  kubectl cluster-info
+   79  kubectl api-resources
+   80  kubectl get no
+   81  kubectl api-versions
+   82  kubectl get pods
+   83  kubectl get pods --all-namespaces
+   84  kubectl get pods -n kube-system
+   85  kubectl get namespaces
+   86  kubectl get pods -n kube-public
+   87  kubectl get pods -n Kube-public
+   88  vi first.yml
+   89  kubectl create -f first.yml
+   90  vi first.yml
+   91  kubectl create -f first.yml
+   92  vi first.yml
+   93  kubectl create -f first.yml
+   94  kubectl get pods
+   95  more first.yml
+   96  kubectl get pods
+   97  kubectl get pods -o wide
+   98  kubectl describe po mypod
+   99  kubectl get pods
+  100  kubectl create -f first.yml
+  101  kubectl get pods
+  102  history
+  103  more first.yml
+  104  kubeadm ls
+  105  kubeadm token list
+  106  kubectl get nodes
+  107  kubectl create -f first.yml
+  108  kubectl describe pod mypod
+  109  kubectl get nodes
+  110  kubectl describe node radhika1
+  111  kubectl taint node radhika1 key-
+  112  kubectl get pods
+  113  more first.yml
+  114  vi first.yml
+  115  kubectl create -f first.yml
+  116  vi first.yml
+  117  kubectl create -f first.yml
+  118  vi first.yml
+  119  kubectl create -f first.yml
+  120  kubectl get pods
+  121  git clone https://github.com/lerndevops/qrlabs.git
+  122  cd /qrlabs
+  123  cd qrlabs/
+  124  ls
+  125  cd kube
+  126  ls
+  127  cd install&configure
+  128  cd 'install&configure'
+  129  ls
+  130  cd \
+  131  cd qrlabs/kube/pods
+  132  ls
+  133  more multi-cont-pod-ex2.yml
+  134  more multi-cont-pod-ex3.yml
+  135  kubectl create -f multi-cont-pod-ex3.yml
+  136  kubectl get pods
+  137  more multi-cont-pod-ex3.yml
+  138  kubectl get pods
+  139  kubectl get
+  140  kubectl get pods
+  141  ls
+  142  more multi-cont-pod-ex3.yml
+  143  kubectl create -f multi-cont-pod-ex2.yml
+  144  kubectl get pods
+  145  kubectl delete pod multi-cont-ex2
+  146  kubectl delete pod mypod
+  147  kubectl get pods
+  148  ls
+  149  more multi-cont-pod-ex3.yml
+  150  kubectl get pods
+  151  kubectl get pod multi-cont-ex3 -o yaml
+  152  kubectl get pods
+  153  kubectl get pods -o wide
+  154  kubectl get nodes
+  155  kubectl taint node radhika1 env=prod
+  156  kubectl taint node radhika1 env=prod:NoSchedule
+  157  ls
+  158  kubectl create -f tolerations-pod.yml
+  159  kubectl get pods
+  160  more tolerations-pod.yml
+  161  kubectl get pods
+  162  kubectl label node radhika1 env=prod
+  163  ls
+  164  vi nodeslector-pod.yml
+  165  kubectl create -f nodeslector-pod.yml
+  166  vi nodeslector-pod.yml
+  167  kubectl create -f nodeslector-pod.yml
+  168  kubectl get pods
+  169  kubectl get pods -o wide
+  170  kubectl delete pods --all --force
+  171  kubectl delete pods abc --grace-period=0 --force
+  172  kubectl delete pods mypod1 --grace-period=0 --force
+  173  kubectl get pods
+  174  ls
+  175  kubectl create -f pod-ex1.yml
+  176  kubectl get pods
+  177  more pod-ex1.yml
+  178  more pod-ex3.yml
+  179  kubectl get pods -o wide
+  180  kubectl get pods
+  181  ls
+  182  kubectl create -f pod-hostport.yml
+  183  kubectl get pods
+  184  kubectl delete taint tomcat env-
+  185  kubectl delete taint radhika1 env-
+  186  kubectl taint delete radhika1 env-
+  187  kubectl describe pod tomcat
+  188  kubectl get pods
+  189  kubectl describe node radhika1
+  190  kubectl taint delete radhika1 env-
+  191  kubectl taint radhika1 env-
+  192  kubectl taint node radhika1 env-
+  193  kubectl get pods
+  194  kubectl exec -it mypod bash
+  195  kubectl exec -it mypod sh
+  196  kubectl exec mypod -- ls
+  197  kubectl exec -it mypod -c
+  198  147ee1b83b30
+  199  kubectl describe pod mypod
+  200  cd qrlabs/kube
+  201  ls
+  202  cd pods
+  203  ls
+  204  kubectl create -f pod-hostnet.yml
+  205  kubectlget pods
+  206  kubectl get pods
+  207  kubectl describe pod nginx
+  208  kubectl exec nginx -c 4c4239b87835bebb3713c sh
+  209  kubectl get svc
+  210  kubectl exec nginx -c docker://4c4239b87835bebb3713cdb4e7738cc52e864d4c860fd01a5d4bc0ff0f229729 sh
+  211  kubectl exec nginx -c docker://4c4239b87835bebb3713cdb4e7738cc52e864d4c860fd01a5d4bc0ff0f229729 bash
+  212  kubectl exec nginx -c 4c4239b87835bebb3713cdb4e7738cc52e864d4c860fd01a5d4bc0ff0f229729 bash
+  213  kubectl exec nginx -c 4c4239b87835 bash
+  214  kubectl exec nginx -c 4c4239b87835 -- ls
+  215  kubectl get pods
+  216  kubectl describe pod nginx
+  217  kubectl exec nginx -c 4c4239b87835 -- ls
+  218  kubectl exec -it nginx 4c4239b87835 bash
+  219  kubectl exec -it nginx 4c4239b87835 sh
+  220  ls
+  221  vi pod-hostnet.yml
+  222  vi rc.yml
+  223  cd \
+  224  cd qrlabs
+  225  cd kube
+  226  ls
+  227  cd controllers
+  228  ls
+  229  vi rs-ex1.yml
+  230  vi rc-ex1.yml
+  231  kubectl create -f rc-ex1.yml
+  232  vi rc-ex1.yml
+  233  kubectl create -f rc-ex1.yml
+  234  vi rc-ex1.yml
+  235  kubectl get rc
+  236  kubectl get pods
+  237  vi rc-ex1.yml
+  238  logout
+  239  history
+  228  ls
+  229  vi rs-ex1.yml
+  230  vi rc-ex1.yml
+  231  kubectl create -f rc-ex1.yml
+  232  vi rc-ex1.yml
+  233  kubectl create -f rc-ex1.yml
+  234  vi rc-ex1.yml
+  235  kubectl get rc
+  236  kubectl get pods
+  237  vi rc-ex1.yml
+  238  logout
+  239  history
+  240  kubect get pods
+  241  kubectl get pods
+  242  kubectl expose rc tomcatrc
+  243  kubectl get svc
+  244  kubectl delete service tomcatrc
+  245  kubectl get svc
+  246  kubectl delete service tomcatrc
+  247  kubectl expose rc tomcatrc
+  248  kubectl get svc
+  249  kubectl get pod -o wide
+  250  curl 10.244.1.11:8080
+  251  kubectl get svc
+  252  curl 10.104.214.103:8080
+  253  more rc-ex2.yml
+  254  kubectl delete rc tomcatrc
+  255  ls rs-ex1.yml
+  256  kubectl get rc
+  257  kubectl get parts
+  258  kubectl get pods
+  259  kubectlet get svc
+  260  cd qrlabs
+  261  cd kube
+  262  ls
+  263  cd controllers
+  264  ls
+  265  kubectl create -f rs-ex1.yml
+  266  kubectl get rs
+  267  history
+
+
+replicationcntroller equity based selection
+replicaset set absed selection
+Deployemnt strategytype is there
+kube-proxy 
+
+learndevops@gmail.com
+
+
+    1  sudo apt-get remove docker docker-engine docker.io containerd runc
+    2  sudo apt-get update
+    3  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    4  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    5  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    6  sudo apt-get update
+    7  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    8  sudo usermod -aG docker radhika2
+    9  logout
+   10  docker ps
+   11  sudo apt-get update
+   12  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+   13  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   14  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   15  sudo apt-get update ; clear
+   16  apt-cache madison docker-ce | awk '{print $3}'
+   17  sudo apt-get install -y docker-ce=5:19.03.4~3-0~ubuntu-bionic
+   18  sudo service docker start ; clear
+   19  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   20  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   21  sudo apt-get update ; clear
+   22  sudo apt-get install -y kubelet kubeadm kubectl
+   23  kubeadm join 10.0.0.4:6443 --token oa44h6.j3ux6iz52tr9xz41     --discovery-token-ca-cert-hash sha256:2221141679cffbb79e21aa12e7514484eafd01871e9c0f02c4bce1d0e2e41488
+   24  kubeadm
+   25  kubectl get nodes
+   26  ssh radhika@40.87.90.111ssh radhika@40.87.90.111
+   27  ssh radhika@40.87.90.111
+   28  kubectl apply -f job-ex1.yml
+   29  docker ps
+   30  ifconfig
+   31  history
+
+
+
+  1  sudo apt-get remove docker docker-engine docker.io containerd runc
+    2  sudo apt-get update
+    3  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    4  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    5  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    6  sudo apt-get update
+    7  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    8  sudo usermod -aG docker radhika
+    9  logout
+   10  docker ps
+   11  logout
+   12  docker ps
+   13  sudo apt-get update
+   14  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+   15  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   16  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   17  sudo apt-get update ; clear
+   18  apt-cache madison docker-ce | awk '{print $3}'
+   19  sudo apt-get install -y docker-ce=5:19.03.4~3-0~ubuntu-bionic
+   20  sudo service docker start ; clear
+   21  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   22  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   23  sudo apt-get update ; clear
+   24  sudo apt-get install -y kubelet kubeadm kubectl
+   25  hostnet -i
+   26  sudo kubeadm init --apiserver-advertise-address=10.0.0.4 --pod-network-cidr=10.244.0.0/16
+   27  sudo mkdir -p $HOME/.kube
+   28  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   29  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   30  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+   31  kubeadm token generate
+   32  kubeadm token create oa44h6.j3ux6iz52tr9xz41 --print-join-command --ttl=0
+   33  kubectl get nodes
+   34  sudo kubeadm init --apiserver-advertise-address=<master ip> --pod-network-cidr=10.244.0.0/16
+   35  kubectl get all --all-namespaces
+   36  git clone https://github.com/lerndevops/qrlabs.git
+   37  cd qrlabs
+   38  cd kube
+   39  cd pods
+   40  ls
+   41  cd ..
+   42  cd controllers
+   43  ls
+   44  kubectl create -f rs-ex2.yml
+   45  kubectl get rs
+   46  kubectl get rs frontend
+   47  kubectl delete rs frontend
+   48  kubectl get pods
+   49  kubectl get rs
+   50  kubeadm
+   51  kubectl get nodes
+   52  cd qrlabs
+   53  cd kube
+   54  cd controllers
+   55  kubectl create -f job-ex1.yml
+   56  ls
+   57  kubectl scale --replicas 5 rs frontend
+   58  kubectl apply -f rs re-ex1.yml
+   59  kubectl apply -f rs rs-ex1.yml
+   60  kubectl apply -f rs-ex1.yml
+   61  kubectl apply -f rs-pod.yml
+   62  kubectl get pods
+   63  kubectl apply  -f deployment-ex1.yml
+   64  logout
+   65  kubectl get deploy
+   66  kubectl rollout status
+   67  kubectl apply -f deployment-ex1.yml --record
+   68  cd qrlabs
+   69  cd kube
+   70  cd controllers
+   71  kubectl apply -f deployment-ex1.yml --record
+   72  kubectl rollout status
+   73  kubectl rollout status deploy mydeployment
+   74  kubectl rollout history deploy mydeployment
+   75  kubectl apply -f deployment-ex1.yml --record
+   76  kubectl rollout history deploy mydeployment
+   77  kubectl apply -f deployment-rollupdate.yml --record
+   78  kubectl rollout status deploy mydeployment
+   79  kubectl rollback deploy mydeployment --to-revision=1
+   80  kubectl rollout undo deploy mydeployment --to-revision=1
+   81  kubectl apply -f ds-ex1.yml
+   82  kubectl get pods
+   83  more ds-ex1.yml
+   84  kubectl get pods
+   85  kubectl get jobs
+   86  kubectl get jobs countdown
+   87  kubectl delete jobs countdown
+   88  kubectl apply -f job-ex1.yml
+   89  kubectl get
+   90  kubectl delete jobs countdown
+   91  vi job-ex1.yml
+   92  kubectl apply -f job-ex1.yml
+   93  vi job-ex1.yml
+   94  kubectl apply -f cronjob-ex1.yml
+   95  kubectl get pods
+   96  kubectlget pods
+   97  kubectl get pods
+   98  kubectl delete cj
+   99  hellokubectl delete cj hello
+  100  kubectl delete cj hello
+  101  kubectl create -f clusterip-svc.yml
+  102  cd ..
+  103  ls
+  104  cd
+  105  git pull
+  106  logout
+  107  cd qrlabs
+  108  git pull https://github.com/lerndevops/qrlabs.git
+  109  cd kube
+  110  ls
+  111  cd services-networks/
+  112  kubectl apply-f service
+  113  kubectl apply -f clusterip-svc.yml
+  114  kubectl get pods
+  115  kubectl get svc
+  116  curl 10.96.153.33
+  117  curl 10.96.153.33:443
+  118  curl 10.96.153.33:8080
+  119  kubectl apply -f node-port-svc.yml
+  120  kubectl apply -f nodeport-svc.yml
+  121  kubectl get svc
+  122  kubectl get ep my-service
+  123  kubectl get svc
+  124  kubectl delete --all
+  125  kubectl delete deploy --all
+  126  kubectl delete pod --all
+  127  kubectl get pods
+  128  kubectl delete job --all
+  129  kubectl delete cornjob --all
+  130  kubectl delete deamon --all
+  131  kubectl delete rs --all
+  132  kubectl get pods
+  133  kubectl delete pod mydaemonset-hrsqc
+  134  kubectl get pods
+  135  cd ...
+  136  cd ..
+  137  cd volumes/
+  138  ls
+  139  vi vol-emptyDir-ex1.yml
+  140  kubectl apply -f vol-emptyDir-ex1.yml
+  141  vi vol-emptyDir-ex1.yml
+  142  kubectl apply -f vol-emptyDir-ex1.yml
+  143  vi vol-emptyDir-ex1.yml
+  144  kubectl apply -f vol-emptyDir-ex1.yml
+  145  kubectl get pods
+  146  kubectl get svc
+  147  kubectl get pods -o wide
+  148  curl 10.244.1.40:80
+  149  kubectl expose pod nginx
+  150  kubectl get pods -o wide
+  151  hostname -i
+  152  curl 10.0.0.4
+  153  kubectl -it pod nginx
+  154  kubectl describe pod nginx
+  155  kubectl exec -it pod nginx
+  156  kubectl exec -it f685d2ada8c12db4d64
+  157  kubectl -it f685d2ada8c12db4d64
+  158  kubectl exec -it nginx /bin/bash
+  159  kubectl get pods -o wide
+  160  curl 10.244.1.40:80
+  161  history
+
+
+
+  

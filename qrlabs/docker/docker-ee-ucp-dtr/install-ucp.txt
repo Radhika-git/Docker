@@ -1,0 +1,35 @@
+pre requisite
+
+	All should have Docker EE installed.
+	UCP Manager: Ubuntu 18.04 Bionic Beaver LTS ( min 8GB RAM/2 vCPU/10GB Free disk )
+	UCP Worker with DTR: Ubuntu 18.04 Bionic Beaver LTS (min 16GB RAM/2 vCPU/10GB Free disk)
+	UCP Worker: Ubuntu 18.04 Bionic Beaver LTS
+
+1) On the UCP Manager server, Pull the UCP image.
+		docker image pull docker/ucp:3.1.10
+		
+2) Set a temporary environment variable containing the private IP address of your UCP manager server.
+		PRIVATE_IP=<your UCP manager private IP>
+		
+3) Run the UCP installer.
+		docker container run --rm -it --name ucp \
+		  -v /var/run/docker.sock:/var/run/docker.sock \
+		  docker/ucp:3.1.10 install \
+		  --host-address $PRIVATE_IP \
+		  --interactive
+
+4) When prompted, create some admin credentials.
+
+5) You will also be prompted for Additional Aliases. When this happens, just hit Enter to accept the default value.
+
+Once the installation is complete, access UCP in a web browser using the UCP manager's Public IP address: https://<your UCP manager public IP>.
+
+	Log in to the UCP manager using the credentials you created earlier.
+
+	You will be prompted to provide a license:
+
+	Open another tab and go to https://hub.docker.com/my-content
+	Click Setup
+	Download the license using the License Key link.
+	
+	Go back to the UCP tab and click Upload License. Select the license file you just downloaded and upload it.

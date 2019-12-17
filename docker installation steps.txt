@@ -1,0 +1,1073 @@
+Install Docker on Ubuntu:
+
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+Add your user to the docker group, giving the user permission to run docker commands:
+        sudo usermod -aG docker cloud_user
+after this logout from machine to add admin rules
+login now and check
+docker ps
+
+
+
+Day1:
+
+Microsoft Windows [Version 10.0.17763.678]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\v-ranar>ssh
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+C:\Users\v-ranar>ssh radhika@13.65.145.12
+The authenticity of host '13.65.145.12 (13.65.145.12)' can't be established.
+ECDSA key fingerprint is SHA256:pB6V1dVUnC6aWxF/FbAiaFylVFH02IBplwnsXi9zIuo.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '13.65.145.12' (ECDSA) to the list of known hosts.
+radhika@13.65.145.12's password:
+Permission denied, please try again.
+radhika@13.65.145.12's password:
+Connection closed by 13.65.145.12 port 22
+
+C:\Users\v-ranar>
+C:\Users\v-ranar>ssh radhika@13.65.145.12
+radhika@13.65.145.12's password:
+Permission denied, please try again.
+radhika@13.65.145.12's password:
+Connection closed by 13.65.145.12 port 22
+
+C:\Users\v-ranar>
+C:\Users\v-ranar>ssh test123@52.172.33.244
+The authenticity of host '52.172.33.244 (52.172.33.244)' can't be established.
+ECDSA key fingerprint is SHA256:oQPpFIG0LcJRcW7CwF3bYRmpFMWDxkKeQYMFFOjJVq4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '52.172.33.244' (ECDSA) to the list of known hosts.
+test123@52.172.33.244's password:
+Permission denied, please try again.
+test123@52.172.33.244's password:
+Permission denied, please try again.
+test123@52.172.33.244's password:
+
+C:\Users\v-ranar>ssh test1234@52.172.33.244
+test1234@52.172.33.244's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  4 08:40:16 UTC 2019
+
+  System load:  0.14              Processes:              131
+  Usage of /:   6.1% of 28.90GB   Users logged in:        1
+  Memory usage: 5%                IP address for eth0:    10.0.12.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+13 packages can be updated.
+13 updates are security updates.
+
+
+Last login: Mon Nov  4 08:33:31 2019 from 103.125.160.18
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  4 08:40:16 UTC 2019
+
+  System load:  0.14              Processes:              131
+  Usage of /:   6.1% of 28.90GB   Users logged in:        1
+  Memory usage: 5%                IP address for eth0:    10.0.12.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+13 packages can be updated.
+13 updates are security updates.
+
+
+Last login: Mon Nov  4 08:33:31 2019 from 103.125.160.18
+test1234@test1234:~$ sudo apt-get remove docker docker-engine docker.io containerd runc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'containerd' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+Package 'runc' is not installed, so not removed
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 13 not upgraded.
+test1234@test1234:~$ sudo apt-get update
+Hit:1 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Fetched 88.7 kB in 1s (97.4 kB/s)
+Reading package lists... Done
+test1234@test1234:~$ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+ca-certificates is already the newest version (20180409).
+curl is already the newest version (7.58.0-2ubuntu3.8).
+software-properties-common is already the newest version (0.96.24.32.11).
+apt-transport-https is already the newest version (1.6.12).
+gnupg-agent is already the newest version (2.2.4-1ubuntu1.2).
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 13 not upgraded.
+test1234@test1234:~$ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+OK
+test1234@test1234:~$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+Hit:1 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu bionic InRelease
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Fetched 88.7 kB in 1s (94.3 kB/s)
+Reading package lists... Done
+test1234@test1234:~$ sudo apt-get update
+Hit:1 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:4 http://azure.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Get:5 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Fetched 88.7 kB in 1s (78.5 kB/s)
+Reading package lists... Done
+test1234@test1234:~$ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+containerd.io is already the newest version (1.2.10-3).
+docker-ce-cli is already the newest version (5:19.03.4~3-0~ubuntu-bionic).
+docker-ce is already the newest version (5:19.03.4~3-0~ubuntu-bionic).
+The following package was automatically installed and is no longer required:
+  linux-headers-4.15.0-66
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 13 not upgraded.
+test1234@test1234:~$ docker -v
+Docker version 19.03.4, build 9013bf583a
+test1234@test1234:~$ ps -ef/grep docker
+error: unsupported SysV option
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+test1234@test1234:~$ ps -ef/grep Docker
+error: unsupported SysV option
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+test1234@test1234:~$ sudo usermod -aG docker cloud_user
+usermod: user 'cloud_user' does not exist
+test1234@test1234:~$ docker -v
+Docker version 19.03.4, build 9013bf583a
+test1234@test1234:~$ docker version
+Client: Docker Engine - Community
+ Version:           19.03.4
+ API version:       1.40
+ Go version:        go1.12.10
+ Git commit:        9013bf583a
+ Built:             Fri Oct 18 15:54:09 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version: dial unix /var/run/docker.sock: connect: permission denied
+test1234@test1234:~$ sudo usermod -aG docker test1234
+test1234@test1234:~$ logout
+Connection to 52.172.33.244 closed.
+
+C:\Users\v-ranar>ssh test1234@52.172.33.244
+test1234@52.172.33.244's password:
+Permission denied, please try again.
+test1234@52.172.33.244's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  4 08:52:10 UTC 2019
+
+  System load:  0.0               Processes:              120
+  Usage of /:   6.1% of 28.90GB   Users logged in:        1
+  Memory usage: 5%                IP address for eth0:    10.0.12.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+13 packages can be updated.
+13 updates are security updates.
+
+
+Last login: Mon Nov  4 08:51:35 2019 from 103.125.160.18
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Nov  4 08:52:10 UTC 2019
+
+  System load:  0.0               Processes:              120
+  Usage of /:   6.1% of 28.90GB   Users logged in:        1
+  Memory usage: 5%                IP address for eth0:    10.0.12.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+13 packages can be updated.
+13 updates are security updates.
+
+
+Last login: Mon Nov  4 08:51:35 2019 from 103.125.160.18
+test1234@test1234:~$ docker version
+Client: Docker Engine - Community
+ Version:           19.03.4
+ API version:       1.40
+ Go version:        go1.12.10
+ Git commit:        9013bf583a
+ Built:             Fri Oct 18 15:54:09 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.4
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.12.10
+  Git commit:       9013bf583a
+  Built:            Fri Oct 18 15:52:40 2019
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.2.10
+  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc:
+  Version:          1.0.0-rc8+dev
+  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+test1234@test1234:~$ ps -ef|grep docker
+root       3681      1  0 08:36 ?        00:00:00 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.socktest1234  18491  18428  0 08:52 pts/1    00:00:00 grep --color=auto docker
+test1234@test1234:~$ docker run -d -P tomcat
+Unable to find image 'tomcat:latest' locally
+latest: Pulling from library/tomcat
+9a0b0ce99936: Pull complete
+db3b6004c61a: Pull complete
+f8f075920295: Pull complete
+6ef14aff1139: Pull complete
+962785d3b7f9: Pull complete
+631589572f9b: Pull complete
+c55a0c6f4c7b: Pull complete
+379605d88e88: Pull complete
+e056aa10ded8: Pull complete
+6349a1c98d85: Pull complete
+Digest: sha256:77e41dbdf7854f03b9a933510e8852c99d836d42ae85cba4b3bc04e8710dc0f7
+Status: Downloaded newer image for tomcat:latest
+1fb25ef836bfd4869c8bf11106b5500ad955820edf98cf5b035fa2fcbaa7e580
+test1234@test1234:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+1fb25ef836bf        tomcat              "catalina.sh run"   49 seconds ago      Up 11 seconds       0.0.0.0:32769->8080/tcp   quizzical_maxwell
+96e452063e6c        tomcat              "catalina.sh run"   49 seconds ago      Up 11 seconds       0.0.0.0:32768->8080/tcp   silly_almeida
+test1234@test1234:~$
+Microsoft Windows [Version 10.0.17763.678]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\v-ranar>ssh radhika@104.40.56.151
+radhika@104.40.56.151's password:
+Permission denied, please try again.
+radhika@104.40.56.151's password:
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Nov  5 07:24:18 UTC 2019
+
+  System load:  0.0                Processes:              119
+  Usage of /:   10.6% of 28.90GB   Users logged in:        0
+  Memory usage: 9%                 IP address for eth0:    10.0.6.4
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Kata Containers are now fully integrated in Charmed Kubernetes 1.16!
+   Yes, charms take the Krazy out of K8s Kata Kluster Konstruction.
+
+     https://ubuntu.com/kubernetes/docs/release-notes
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Tue Nov  5 06:52:38 2019 from 103.125.160.18
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1023-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Nov  5 07:24:18 UTC 2019
+
+  System load:  0.0                Processes:              119
+  Usage of /:   10.6% of 28.90GB   Users logged in:        0
+  Memory usage: 9%                 IP address for eth0:    10.0.6.4
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Kata Containers are now fully integrated in Charmed Kubernetes 1.16!
+   Yes, charms take the Krazy out of K8s Kata Kluster Konstruction.
+
+     https://ubuntu.com/kubernetes/docs/release-notes
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Tue Nov  5 06:52:38 2019 from 103.125.160.18
+radhika@radhika:~$ docker run -d --name radhika -d -p tomcat
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+radhika@radhika:~$ docker run  --name radhika -d -p tomcat
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+radhika@radhika:~$ docker run --name radhika -d -p tomcat
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+radhika@radhika:~$ docker run --name radhika -d -P tomcat
+858006c6037f4fce6e2d8a25419e8219dd1573c6e23800b3130245b1929844c7
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+858006c6037f        tomcat              "catalina.sh run"   8 seconds ago       Up 5 seconds        0.0.0.0:32770->8080/tcp   radhika
+662f12be8a39        tomcat              "catalina.sh run"   45 minutes ago      Up 45 minutes       8080/tcp                  affectionate_sutherland
+radhika@radhika:~$ docker rename 858006c6037f myrad
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                     NAMES
+858006c6037f        tomcat              "catalina.sh run"   About a minute ago   Up About a minute   0.0.0.0:32770->8080/tcp   myrad
+662f12be8a39        tomcat              "catalina.sh run"   47 minutes ago       Up 47 minutes       8080/tcp                  affectionate_sutherland
+radhika@radhika:~$ touch abc.txt
+radhika@radhika:~$ docker cp abc.txt 858006c6037f :/tmp
+"docker cp" requires exactly 2 arguments.
+See 'docker cp --help'.
+
+Usage:  docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+        docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+Copy files/folders between a container and the local filesystem
+radhika@radhika:~$ docker cp abc.txt 858006c6037f:/tmp
+radhika@radhika:~$ docker exec 858006c6037f ls /tmp
+abc.txt
+hsperfdata_root
+radhika@radhika:~$ ls -ltrh
+total 0
+-rw-rw-r-- 1 radhika radhika 0 Nov  5 07:29 abc.txt
+radhika@radhika:~$ docker cp 858006c6037f:/tmp/abc.txt
+"docker cp" requires exactly 2 arguments.
+See 'docker cp --help'.
+
+Usage:  docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+        docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+Copy files/folders between a container and the local filesystem
+radhika@radhika:~$ docker cp 858006c6037f:/tmp/abc.txt .
+radhika@radhika:~$ ls
+abc.txt
+radhika@radhika:~$ docker logs 662f12be8a39
+05-Nov-2019 06:40:17.989 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.47
+05-Nov-2019 06:40:17.993 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 13:30:46 UTC
+05-Nov-2019 06:40:17.994 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.47.0
+05-Nov-2019 06:40:17.994 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+05-Nov-2019 06:40:17.995 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.0.0-1023-azure
+05-Nov-2019 06:40:17.995 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Nov-2019 06:40:17.996 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/local/openjdk-8/jre
+05-Nov-2019 06:40:17.996 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_232-b09
+05-Nov-2019 06:40:17.997 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+05-Nov-2019 06:40:17.998 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+05-Nov-2019 06:40:17.998 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+05-Nov-2019 06:40:17.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+05-Nov-2019 06:40:17.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Nov-2019 06:40:18.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Nov-2019 06:40:18.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Nov-2019 06:40:18.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+05-Nov-2019 06:40:18.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+05-Nov-2019 06:40:18.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+05-Nov-2019 06:40:18.003 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+05-Nov-2019 06:40:18.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+05-Nov-2019 06:40:18.005 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.5.2].
+05-Nov-2019 06:40:18.005 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+05-Nov-2019 06:40:18.009 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+05-Nov-2019 06:40:18.017 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0l  10 Sep 2019]
+05-Nov-2019 06:40:18.179 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+05-Nov-2019 06:40:18.199 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Nov-2019 06:40:18.242 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+05-Nov-2019 06:40:18.244 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Nov-2019 06:40:18.254 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 868 ms
+05-Nov-2019 06:40:18.303 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Nov-2019 06:40:18.303 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.47
+05-Nov-2019 06:40:18.315 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
+05-Nov-2019 06:40:18.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [416] ms
+05-Nov-2019 06:40:18.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
+05-Nov-2019 06:40:18.785 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [53] ms
+05-Nov-2019 06:40:18.785 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
+05-Nov-2019 06:40:19.138 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [352] ms
+05-Nov-2019 06:40:19.138 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
+05-Nov-2019 06:40:19.155 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [17] ms
+05-Nov-2019 06:40:19.156 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
+05-Nov-2019 06:40:19.176 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [20] ms
+05-Nov-2019 06:40:19.180 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+05-Nov-2019 06:40:19.196 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+05-Nov-2019 06:40:19.203 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 948 ms
+radhika@radhika:~$ docker logs -f 662f12be8a39
+05-Nov-2019 06:40:17.989 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.47
+05-Nov-2019 06:40:17.993 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 7 2019 13:30:46 UTC
+05-Nov-2019 06:40:17.994 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.47.0
+05-Nov-2019 06:40:17.994 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+05-Nov-2019 06:40:17.995 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.0.0-1023-azure
+05-Nov-2019 06:40:17.995 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Nov-2019 06:40:17.996 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/local/openjdk-8/jre
+05-Nov-2019 06:40:17.996 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_232-b09
+05-Nov-2019 06:40:17.997 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+05-Nov-2019 06:40:17.998 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+05-Nov-2019 06:40:17.998 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+05-Nov-2019 06:40:17.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+05-Nov-2019 06:40:17.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Nov-2019 06:40:18.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Nov-2019 06:40:18.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Nov-2019 06:40:18.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+05-Nov-2019 06:40:18.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+05-Nov-2019 06:40:18.002 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+05-Nov-2019 06:40:18.003 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+05-Nov-2019 06:40:18.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+05-Nov-2019 06:40:18.005 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.5.2].
+05-Nov-2019 06:40:18.005 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+05-Nov-2019 06:40:18.009 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+05-Nov-2019 06:40:18.017 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.0l  10 Sep 2019]
+05-Nov-2019 06:40:18.179 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+05-Nov-2019 06:40:18.199 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Nov-2019 06:40:18.242 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+05-Nov-2019 06:40:18.244 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+05-Nov-2019 06:40:18.254 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 868 ms
+05-Nov-2019 06:40:18.303 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Nov-2019 06:40:18.303 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.47
+05-Nov-2019 06:40:18.315 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/host-manager]
+05-Nov-2019 06:40:18.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/host-manager] has finished in [416] ms
+05-Nov-2019 06:40:18.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/manager]
+05-Nov-2019 06:40:18.785 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/manager] has finished in [53] ms
+05-Nov-2019 06:40:18.785 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/examples]
+05-Nov-2019 06:40:19.138 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/examples] has finished in [352] ms
+05-Nov-2019 06:40:19.138 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/docs]
+05-Nov-2019 06:40:19.155 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/docs] has finished in [17] ms
+05-Nov-2019 06:40:19.156 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/usr/local/tomcat/webapps/ROOT]
+05-Nov-2019 06:40:19.176 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/usr/local/tomcat/webapps/ROOT] has finished in [20] ms
+05-Nov-2019 06:40:19.180 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+05-Nov-2019 06:40:19.196 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+05-Nov-2019 06:40:19.203 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 948 ms
+
+
+
+
+
+
+
+^P^C
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+858006c6037f        tomcat              "catalina.sh run"   14 minutes ago      Up 14 minutes       0.0.0.0:32770->8080/tcp   myrad
+662f12be8a39        tomcat              "catalina.sh run"   About an hour ago   Up About an hour    8080/tcp                  affectionate_sutherland
+radhika@radhika:~$ docker rm -f 662f12be8a39 858006c6037f
+662f12be8a39
+858006c6037f
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+radhika@radhika:~$ docker run -d -P nginx
+bf635f94897f099e46210d3a1cdcbdf90b37dc91ad4b7326634ec02852b674be
+radhika@radhika:~$ docker run -d -p 1234:80 nginx
+31275f0140cd1c77cd0597932b8653f867e129ae43012d84930e18fede85cb00
+radhika@radhika:~$ docker run -d nginx
+2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                   NAMES
+2107236ba004        nginx               "nginx -g 'daemon of…"   6 seconds ago       Up 4 seconds        80/tcp                  nostalgic_engelbart
+31275f0140cd        nginx               "nginx -g 'daemon of…"   23 seconds ago      Up 21 seconds       0.0.0.0:1234->80/tcp    happy_kalam
+bf635f94897f        nginx               "nginx -g 'daemon of…"   48 seconds ago      Up 46 seconds       0.0.0.0:32771->80/tcp   trusting_mahavira
+radhika@radhika:~$ docker run -d -P tomcat
+e0f75a11cf11f43b9f72a7346ee7856c9bf1732f4d5e41a0e86b3719b9c0616d
+radhika@radhika:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+e0f75a11cf11        tomcat              "catalina.sh run"        5 seconds ago       Up 4 seconds        0.0.0.0:32772->8080/tcp   happy_cerf
+2107236ba004        nginx               "nginx -g 'daemon of…"   8 minutes ago       Up 8 minutes        80/tcp                    nostalgic_engelbart
+31275f0140cd        nginx               "nginx -g 'daemon of…"   8 minutes ago       Up 8 minutes        0.0.0.0:1234->80/tcp      happy_kalam
+bf635f94897f        nginx               "nginx -g 'daemon of…"   8 minutes ago       Up 8 minutes        0.0.0.0:32771->80/tcp     trusting_mahavira
+radhika@radhika:~$ docker inspect 2107236ba004
+[
+    {
+        "Id": "2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec",
+        "Created": "2019-11-05T08:00:17.365760011Z",
+        "Path": "nginx",
+        "Args": [
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 22765,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2019-11-05T08:00:18.973581373Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:540a289bab6cb1bf880086a9b803cf0c4cefe38cbb5cdefa199b69614525199f",
+        "ResolvConfPath": "/var/lib/docker/containers/2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec/hostname",
+        "HostsPath": "/var/lib/docker/containers/2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec/hosts",
+        "LogPath": "/var/lib/docker/containers/2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec/2107236ba004ec8d820b6ad581276b0ad9147168c9a9de85eda7ad378691c5ec-json.log",
+        "Name": "/nostalgic_engelbart",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Capabilities": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/79f9d810bd8cef7ca0ab3d5f056705654d10bc8a9cb28523fd5fef565ed543ba-init/diff:/var/lib/docker/overlay2/d4d7322e3cdda443a877a91670c55af17358707ea809e5056e1b181feb466ba3/diff:/var/lib/docker/overlay2/419efb57d5af4c590d695499297cc413731420141066163513cc998ca5fd3648/diff:/var/lib/docker/overlay2/59b679fe26132f3ec4ad84d0e90e692edcdf9fe9d64002b5410c6cc123c78fdd/diff",
+                "MergedDir": "/var/lib/docker/overlay2/79f9d810bd8cef7ca0ab3d5f056705654d10bc8a9cb28523fd5fef565ed543ba/merged",
+                "UpperDir": "/var/lib/docker/overlay2/79f9d810bd8cef7ca0ab3d5f056705654d10bc8a9cb28523fd5fef565ed543ba/diff",
+                "WorkDir": "/var/lib/docker/overlay2/79f9d810bd8cef7ca0ab3d5f056705654d10bc8a9cb28523fd5fef565ed543ba/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "2107236ba004",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.17.5",
+                "NJS_VERSION=0.3.6",
+                "PKG_RELEASE=1~buster"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGTERM"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "db3d15f54270cb488d1be0c2d3f970f387080a8ab903194d48b8d1a8bedc6316",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/db3d15f54270",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "f9024b9922d1e7754bf14f9c72ee11bc7cf46515f9a7d8983b6187d3d5c2fed9",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.4",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:04",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "4b677ba5b1823fd6499583da3ff6320cd87c4461b4dc37e606923007027174af",
+                    "EndpointID": "f9024b9922d1e7754bf14f9c72ee11bc7cf46515f9a7d8983b6187d3d5c2fed9",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:04",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+radhika@radhika:~$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              latest              775349758637        4 days ago          64.2MB
+nginx               latest              540a289bab6c        13 days ago         126MB
+alpine              latest              965ea09ff2eb        2 weeks ago         5.55MB
+tomcat              latest              882487b8be1d        2 weeks ago         507MB
+postgres            latest              f88dfa384cc4        2 weeks ago         348MB
+centos              latest              0f3e07c0138f        4 weeks ago         220MB
+radhika@radhika:~$ docker inspect 775349758637
+[
+    {
+        "Id": "sha256:775349758637aff77bf85e2ff0597e86e3e859183ef0baba8b3e8fc8d3cba51c",
+        "RepoTags": [
+            "ubuntu:latest"
+        ],
+        "RepoDigests": [
+            "ubuntu@sha256:6e9f67fa63b0323e9a1e587fd71c561ba48a034504fb804fd26fd8800039835d"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2019-10-31T22:20:37.714423666Z",
+        "Container": "4df7a03525342ee760076ade1c80bbdd041f236654f624ca581ada54310a1574",
+        "ContainerConfig": {
+            "Hostname": "4df7a0352534",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"/bin/bash\"]"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:f0caea6f785de71fe8c8b1b276a7094151df6058aa3f22d2902fe6b51f1a7a8f",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "18.06.1-ce",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:f0caea6f785de71fe8c8b1b276a7094151df6058aa3f22d2902fe6b51f1a7a8f",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 64193254,
+        "VirtualSize": 64193254,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/e7897ab62dea823bd2c5cd6c87c9e57c883df0cb9d919be50474ce32884949f8/diff:/var/lib/docker/overlay2/1aa071207d2453063809c1e25f7cd8a3f5d3300fc0052fdff469c126cdfc0a87/diff:/var/lib/docker/overlay2/44967f9a33473fb184a76646ae4f70975f1d8486b686caa5d42a912b6643a610/diff",
+                "MergedDir": "/var/lib/docker/overlay2/a3b632d5f807d2d386f178c475093c981608fd0aae963bfb12da8c054cb3af19/merged",
+                "UpperDir": "/var/lib/docker/overlay2/a3b632d5f807d2d386f178c475093c981608fd0aae963bfb12da8c054cb3af19/diff",
+                "WorkDir": "/var/lib/docker/overlay2/a3b632d5f807d2d386f178c475093c981608fd0aae963bfb12da8c054cb3af19/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:cc967c529ced563b7746b663d98248bc571afdb3c012019d7f54d6c092793b8b",
+                "sha256:2c6ac8e5063e35e91ab79dfb7330c6154b82f3a7e4724fb1b4475c0a95dfdd33",
+                "sha256:6c01b5a53aac53c66f02ea711295c7586061cbe083b110d54dafbeb6cf7636bf",
+                "sha256:e0b3afb09dc386786d49d6443bdfb20bc74d77dcf68e152db7e5bb36b1cca638"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+radhika@radhika:~$ sudo su-
+sudo: su-: command not found
+radhika@radhika:~$ sudo su -
+root@radhika:~# which docker
+/usr/bin/docker
+root@radhika:~# ^C
+root@radhika:~# which ^C
+root@radhika:~# ^C
+root@radhika:~#
+root@radhika:~#
+root@radhika:~# docker history
+"docker history" requires exactly 1 argument.
+See 'docker history --help'.
+
+Usage:  docker history [OPTIONS] IMAGE
+
+Show the history of an image
+root@radhika:~# cd /var/lib/overlay2
+-su: cd: /var/lib/overlay2: No such file or directory
+root@radhika:~# cd /var/lib/overlay2
+-su: cd: /var/lib/overlay2: No such file or directory
+root@radhika:~# docker history tomcat
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+882487b8be1d        2 weeks ago         /bin/sh -c #(nop)  CMD ["catalina.sh" "run"]    0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  EXPOSE 8080                  0B
+<missing>           2 weeks ago         /bin/sh -c set -e  && nativeLines="$(catalin…   0B
+<missing>           2 weeks ago         /bin/sh -c set -eux;   savedAptMark="$(apt-m…   18.6MB
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV TOMCAT_SHA512=079b85f…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV TOMCAT_VERSION=8.5.47    0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV TOMCAT_MAJOR=8           0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV GPG_KEYS=05AB33110949…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV LD_LIBRARY_PATH=/usr/…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV TOMCAT_NATIVE_LIBDIR=…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop) WORKDIR /usr/local/tomcat     0B
+<missing>           2 weeks ago         /bin/sh -c mkdir -p "$CATALINA_HOME"            0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV PATH=/usr/local/tomca…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV CATALINA_HOME=/usr/lo…   0B
+<missing>           2 weeks ago         /bin/sh -c set -eux;   dpkgArch="$(dpkg --pr…   205MB
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV JAVA_URL_VERSION=8u23…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV JAVA_BASE_URL=https:/…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV JAVA_VERSION=8u232       0B
+<missing>           2 weeks ago         /bin/sh -c { echo '#/bin/sh'; echo 'echo "$J…   27B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV PATH=/usr/local/openj…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV JAVA_HOME=/usr/local/…   0B
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV LANG=C.UTF-8             0B
+<missing>           2 weeks ago         /bin/sh -c set -eux;  apt-get update;  apt-g…   9.68MB
+<missing>           2 weeks ago         /bin/sh -c apt-get update && apt-get install…   142MB
+<missing>           2 weeks ago         /bin/sh -c set -ex;  if ! command -v gpg > /…   7.81MB
+<missing>           2 weeks ago         /bin/sh -c apt-get update && apt-get install…   23.2MB
+<missing>           2 weeks ago         /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>           2 weeks ago         /bin/sh -c #(nop) ADD file:fdf0128645db4c8b9…   101MB
+root@radhika:~# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+e0f75a11cf11        tomcat              "catalina.sh run"        25 minutes ago      Up 25 minutes       0.0.0.0:32772->8080/tcp   happy_cerf
+2107236ba004        nginx               "nginx -g 'daemon of…"   33 minutes ago      Up 33 minutes       80/tcp                    nostalgic_engelbart
+31275f0140cd        nginx               "nginx -g 'daemon of…"   33 minutes ago      Up 33 minutes       0.0.0.0:1234->80/tcp      happy_kalam
+bf635f94897f        nginx               "nginx -g 'daemon of…"   34 minutes ago      Up 34 minutes       0.0.0.0:32771->80/tcp     trusting_mahavira
+root@radhika:~# docker image rm  nginx
+Error response from daemon: conflict: unable to remove repository reference "nginx" (must force) - container 31275f0140cd is using its referenced image 540a289bab6c
+root@radhika:~# docker image rm nginx
+Error response from daemon: conflict: unable to remove repository reference "nginx" (must force) - container bf635f94897f is using its referenced image 540a289bab6c
+root@radhika:~# docker image rm -f nginx
+Untagged: nginx:latest
+Untagged: nginx@sha256:922c815aa4df050d4df476e92daed4231f466acc8ee90e0e774951b0fd7195a4
+root@radhika:~# docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+root@radhika:~# docker image prune -a
+WARNING! This will remove all images without at least one container associated to them.
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+untagged: ubuntu:latest
+untagged: ubuntu@sha256:6e9f67fa63b0323e9a1e587fd71c561ba48a034504fb804fd26fd8800039835d
+deleted: sha256:775349758637aff77bf85e2ff0597e86e3e859183ef0baba8b3e8fc8d3cba51c
+deleted: sha256:4fc26b0b0c6903db3b4fe96856034a1bd9411ed963a96c1bc8f03f18ee92ac2a
+deleted: sha256:b53837dafdd21f67e607ae642ce49d326b0c30b39734b6710c682a50a9f932bf
+deleted: sha256:565879c6effe6a013e0b2e492f182b40049f1c083fc582ef61e49a98dca23f7e
+deleted: sha256:cc967c529ced563b7746b663d98248bc571afdb3c012019d7f54d6c092793b8b
+untagged: centos:latest
+untagged: centos@sha256:f94c1d992c193b3dc09e297ffd54d8a4f1dc946c37cbeceb26d35ce1647f88d9
+deleted: sha256:0f3e07c0138fbe05abcb7a9cc7d63d9bd4c980c3f61fea5efa32e7c4217ef4da
+deleted: sha256:9e607bb861a7d58bece26dd2c02874beedd6a097c1b6eca5255d5eb0d2236983
+untagged: alpine:latest
+untagged: alpine@sha256:c19173c5ada610a5989151111163d28a67368362762534d8a8121ce95cf2bd5a
+deleted: sha256:965ea09ff2ebd2b9eeec88cd822ce156f6674c7e99be082c7efac3c62f3ff652
+deleted: sha256:77cae8ab23bf486355d1b3191259705374f4a11d483b24964d2f729dd8c076a0
+untagged: postgres:latest
+untagged: postgres@sha256:a4a944788084a92bcaff6180833428f17cceb610e43c828b3a42345b33a608a7
+deleted: sha256:f88dfa384cc411b91b6e0b6257d79a4beb91d796d47e854427308a8fed89b11d
+deleted: sha256:9846da0a265a307df3baadc3159cb0646284ce8aabe32f0069296cef6ec1a869
+deleted: sha256:54ccab7f029b1f5de0de1c0954a9786dd20a8556570541c6bcaa6a78be05cb44
+deleted: sha256:139657f984c1f790bbd04a40773ff7a97673c096def03b15bfbc35c30604f92b
+deleted: sha256:d8268b593be255e79a5c0f70a7c2b9eede4cfa9a6d74206e1830e4928f531aad
+deleted: sha256:0b0f2f2bcdf973ddbced34c975ef0e9b81581873b3cb7fb414b028b2a49ee01c
+deleted: sha256:0ee7e95d42d5942ca0da333133d669793e929092567ac75f173c39ba1c58d9c8
+deleted: sha256:134ec65bc5ef7f312558517003782674384c7f5ef7360fc76310b142f8ac04f0
+deleted: sha256:c8813fdd2f004263d79b314578159bb7681ed839462a46b851a4be4b63e0f21c
+deleted: sha256:70347a189eb460b50322fd4eccf845295469a94cd2139fab783bbcd7d82a95ea
+deleted: sha256:c9ffe1b91b8b6f5ebf8b8758a6f9e7f9fa9d6c6ea208a399fa33b38be9ecccda
+deleted: sha256:f95be6c21ce8bd38ca461f75c08c9f25b49acd6a2fb5338e16cdcecf6635f722
+deleted: sha256:e4d2ec0175ccdac5ba7c847fefc047f9befd14d6d8d937c95b7949ee69eea442
+deleted: sha256:e989842b3fc48ed0609250d60ff212a6255d3c68b82658eaf3f33c53aa879754
+
+Total reclaimed space: 568.1MB
+root@radhika:~# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+e0f75a11cf11        tomcat              "catalina.sh run"        29 minutes ago      Up 29 minutes       0.0.0.0:32772->8080/tcp   happy_cerf
+2107236ba004        540a289bab6c        "nginx -g 'daemon of…"   37 minutes ago      Up 37 minutes       80/tcp                    nostalgic_engelbart
+31275f0140cd        540a289bab6c        "nginx -g 'daemon of…"   38 minutes ago      Up 37 minutes       0.0.0.0:1234->80/tcp      happy_kalam
+bf635f94897f        540a289bab6c        "nginx -g 'daemon of…"   38 minutes ago      Up 38 minutes       0.0.0.0:32771->80/tcp     trusting_mahavira
+root@radhika:~# docker continer prune
+docker: 'continer' is not a docker command.
+See 'docker --help'
+root@radhika:~# docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+root@radhika:~# docker container prune -a
+unknown shorthand flag: 'a' in -a
+See 'docker container prune --help'.
+root@radhika:~# docker system df
+TYPE                TOTAL               ACTIVE              SIZE                RECLAIMABLE
+Images              2                   2                   633MB               0B (0%)
+Containers          4                   4                   89.06kB             0B (0%)
+Local Volumes       2                   0                   82.86MB             82.86MB (100%)
+Build Cache         0                   0                   0B                  0B
+root@radhika:~# dock
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
